@@ -1,0 +1,817 @@
+// compileCompressed: ../css/main.css
+@import "layout"
+@import "design"
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400')
+
+$logo-red: #e50f2e
+$logo-grey: #797a7d
+$theme-black: #252525
+$theme-red: #be132c
+@mixin theme-gradient
+  background: linear-gradient(to right, rgb(235, 87, 87), rgb(0, 0, 0))
+
+
+.btn-inverse-theme-red
+  color: #fff
+  text-decoration: none
+  border: 2px solid $theme-red
+  background-color: $theme-red
+  font-weight: 400
+  &:hover
+    color: $theme-red
+    background-color: #fff
+    border-color: $theme-red
+
+.red-black-gradient
+  @include theme-gradient
+
+*
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+html
+  width: 100%
+
+body
+  font-family: 'Roboto', sans-serif
+  font-weight: 300
+  width: 100%
+  overflow-x: hidden !important
+
+a
+  color: #333
+  text-decoration: none
+  cursor: pointer
+
+.pointer
+  cursor: pointer
+
+.a-reverse
+  color: #fff
+
+.a
+  color: #252525
+
+.background-load
+  width: 100%
+  height: 100%
+  position: fixed
+  background-color: #fff
+  z-index: 1000
+
+.logo-loader
+  overflow: hidden
+  width: 500px
+  height: 200px
+  background:
+    image: url("../pics/icy-penguin.png")
+    position: center
+    size: contain
+    repeat: no-repeat
+  .load1
+    width: 100%
+    height: 100%
+    position: absolute
+    z-index: -3
+    left: 0
+    top: 0
+    background-color: #fff
+
+  .load2
+    width: 100%
+    height: 100%
+    position: absolute
+    z-index: -2
+    left: 0
+    top: 0
+    background:
+      image: url("../pics/icy-penguin-load.png")
+      position: center
+      size: contain
+      repeat: no-repeat
+
+
+.focus
+  display: none
+  opacity: 0
+  position: fixed
+  height: 100%
+  width: 100%
+  z-index: 11
+  top: 0
+  left: 0
+  background:
+    color: rgba(0, 0, 0, 0.65)
+
+.details-txt
+  position: relative
+  h3
+    display: inline-block
+    width: 50%
+    i
+      color: $theme-red
+      font-weight: bold
+    &:nth-child(2)
+      position: relative
+      width: 40%
+
+
+// NAVIGATION
+.menu-bars
+  display: none
+
+a.logo:hover, nav .nav-ul .nav-li .dropdown a:hover
+  border-bottom: 0px solid #333
+
+nav
+  width: 100%
+  height: 100px
+  position: relative
+  background-color: #fff
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5)
+
+  a
+    transition: 0.1s all ease-in-out
+    &:hover
+      border-bottom: 2px solid #333
+
+  .nav-ul
+    position: absolute
+    bottom: 0px
+    margin: 0 auto
+    padding: 0
+    width: 50%
+
+    .nav-li
+      position: relative
+      display: inline-block
+      margin-right: 35px
+      font-size: 16px
+      padding-top: 12px
+      padding-bottom: 8px
+
+      &:hover
+        .dropdown
+          display: block
+
+      .dropdown
+        position: absolute
+        display: none
+        padding: 0
+        left: -25px
+        top: 100%
+        background-color: #eee
+        width: 125%
+
+        li
+          list-style: none
+          position: relative
+          &:hover
+            .dropside
+              display: block
+
+        li
+          list-style: none
+          position: relative
+          display: block
+          padding-top: 10px
+          padding-bottom: 10px
+          padding-left: 12px
+          font-weight: 300
+          &:hover
+            background-color: #ccc
+
+          a
+            span
+              float: right
+              padding-right: 10px
+
+      .dropside
+        position: absolute
+        display: none
+        padding: 0
+        left: 100%
+        top: 0
+        background-color: #ddd
+        width: 100%
+
+        li
+          list-style: none
+          position: relative
+          display: block
+          padding-top: 10px
+          padding-bottom: 10px
+          padding-left: 12px
+          font-weight: 300
+          &:hover
+            .dropside2
+              display: block
+
+          a
+            span
+              float: right
+              padding-right: 10px
+
+        .dropside2
+          position: absolute
+          display: none
+          padding: 0
+          left: 100%
+          top: 0
+          background-color: #ddd
+          width: 100%
+
+          li
+            list-style: none
+            position: relative
+            display: block
+            padding-top: 10px
+            padding-bottom: 10px
+            padding-left: 12px
+            font-weight: 300
+
+            a
+              span
+                float: right
+                padding-right: 10px
+  .content
+    position: relative
+    z-index: 2
+    height: calc(100% - 30px)
+    width: 200%
+    padding-top: 30px
+    padding-left: 3%
+    top: 30px
+
+    .logo
+      position: absolute
+      left: 50px
+      top: -5px
+      display: block
+      width: 27%
+      max-width: 300px
+      min-width: 200px
+
+  .nav-black
+    z-index: 1
+    content: " "
+    position: absolute
+    left: 0
+    top: 0
+    height: 100%
+    width: 50%
+    background-color: transparent
+
+    .nav-ul
+      width: 867px
+      left: 50%
+      margin-left: -397px
+
+    // &::after
+    //   z-index: 1
+    //   content: " "
+    //   position: absolute
+    //   left: 100%
+    //   top: -17px
+    //   margin-left: -49px
+    //   border: 75px solid transparent
+    //   border-bottom-width: 0
+    //   border-top-color: $theme-black
+    //   transform: rotate(135deg)
+
+  .nav-red
+    z-index: -1
+    content: " "
+    position: absolute
+    left: 50%
+    top: 0
+    height: 100%
+    width: 50%
+
+  .nav-address
+    z-index: 3
+    position: absolute
+    top: 10px
+    right: 50px
+    color: #fff
+
+.dropdown2
+  width: 180% !important
+
+
+
+// Sidebar
+.open
+  span
+    width: 30px
+    &:nth-child(1)
+      transform-origin: right
+      transform: rotate(-44deg)
+      width: 35px
+
+    &:nth-child(2)
+      width: 0
+
+    &:nth-child(3)
+      transform-origin: right
+      transform: rotate(44deg)
+      width: 35px
+
+
+
+
+
+
+//main
+// .carousel1
+//   display: block
+//   width: 100%
+//   height: 60%
+//   background-color: #e5eaee
+//
+//   .carousel-container
+//     padding-top: 50px
+//     padding-bottom: 70px
+//     width: 75%
+//     margin: 0 auto
+//
+//     div.img
+//       max-width: 35%
+//       img
+//         max-width: 100%
+//         height: auto
+//     div
+//       ul
+//         li
+//           font-size: 20px
+//
+//
+//
+// span.carousel-fill
+//   display: block
+//   width: 100%
+//   height: 60%
+//   background-color: #e5eaee
+.carousel
+
+  .carousel-control.left, .carousel-control.right
+    top: 0 !important
+    span.uniqueControl
+      color: #fff !important
+      padding: 25px !important
+      background-color: rgba(0,0,0,0.6) !important
+      border-radius: 11% !important
+      line-height: 0 !important
+      font-size: 40px !important
+      width: auto
+      height: auto
+
+  .background-img
+    height: 500px
+    width: 100%
+
+.background-img
+  background-position: center
+  // background-attachment: fixed
+  background-repeat: no-repeat
+  background-size: cover
+
+.detail-red
+  background-color: #be132c
+  font-size: 13px
+  padding: 10px
+
+.detail-black
+  font-size: 13px
+  padding: 10px
+
+[class*="indicator-num"]
+  opacity: 0.5
+
+.thumbnail-indicators
+  overflow: auto
+  overflow-y: hidden
+  white-space: nowrap
+  max-height: 150px
+  background-color: #eee
+  li
+    display: inline-block
+
+    img
+      height: 100px
+      width: auto
+
+.carousel2
+  img
+    display: block
+    width: 100%
+
+
+  .left.carousel-control
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%)
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%)
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)))
+    background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1)
+
+  .right.carousel-control
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%)
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%)
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)))
+    background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1)
+
+
+  .left.carousel-control, .right.carousel-control
+    top: 0
+    background-repeat: repeat-x
+    span
+      position: absolute
+      color: #fff
+      top: 40%
+
+.thumbnail-links
+  position: relative
+  transition: 0.3s ease-in-out
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.5)
+  span
+    position: absolute
+    z-index: -1
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+  a
+    img
+      opacity: 0.4
+      transition: 0.3s ease-in-out
+    h2
+      position: absolute
+      font-weight: 400
+      color: #fff
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+  &:hover
+    transform: scale(1.05)
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6)
+    z-index: 100000
+
+.perks
+  width: 100%
+  position: relative
+  background-color: #060707
+  background-image: url("../../photos/perks.jpeg")
+  background-attachment: fixed
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  color: #ccc
+  padding-top: 50px
+  padding-bottom: 50px
+
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.6)
+
+
+footer
+  position: relative
+  background-color: #000
+  background-image: url("../../photos/gear.jpg")
+  background-attachment: fixed
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center 357px
+  border-top: 3px solid $theme-red
+  color: #eee
+  margin-top: -5px
+
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.8)
+
+  h3
+    font-size: 15px
+
+  li
+    list-style: none
+    line-height: 2
+
+    a
+      color: #fff
+      &:hover
+        text-decoration: underline
+
+  h3.social-container
+    a
+      margin: 0 10px
+      font-size: 20px
+
+    .facebook
+      padding: 8px 15px
+      border-radius: 10px
+      &:hover
+        color: #fff
+        background-color: $facebook-blue
+
+    .twitter
+      padding: 8px 11px
+      border-radius: 10px
+      &:hover
+        color: #fff
+        background-color: $twitter-blue
+
+    .instagram
+      padding: 8px 12px
+      border-radius: 10px
+      &:hover
+        color: #fff
+        background: -webkit-radial-gradient(7px 36px, #ffda75 18%, #ff3a49 43%, #ff3a49 50%, #e518a1 70%, #6634e1 100%)
+
+.bg-white
+  background-color: #fff
+
+.txt-white
+  color: #fff
+
+.bg-black
+  background-color: #333
+
+.bg-red
+  background-color: $theme-red
+
+.bg-blue
+  background-color: $blue
+
+.bg-green
+  background-color: $green
+
+.border-red
+  border-color: $theme-red
+
+h1.flex-between, h2.flex-between, h3.flex-between
+  padding: 0 20px
+  font-weight: 300
+  span
+    font-size: 20px
+    font-style: italic
+    color: #999
+    line-height: 2.4
+
+
+
+// SUBDOMAIN MATERIAL
+body.controlPanel
+  background-color: #f1f1f1
+
+main.mainPanel
+  width: calc(100%-250px)
+  margin-left: 250px
+
+  .column
+    position: relative
+    width: 750px
+    left: 50%
+    margin-left: -375px
+
+    .bg-white
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2)
+
+    .section
+      padding: 10px 20px
+      // border-bottom: 1px solid #f0f0f0
+
+      .link:hover
+        background-color: #dedede
+        color: #757b87
+
+
+.printTD
+  tr
+    td
+      padding: 2px !important
+
+.table > tbody > tr > td
+  font-weight: 400
+
+.did-you-know
+  width: 100px
+  height: 100px
+  border: 3px solid #ccc
+  border-radius: 50%
+  padding-top: 23px
+  cursor: default
+  transition: 0.5s all ease-in-out
+
+  &:hover
+    transform: rotate(360deg)
+    background-color: #ccc
+    color: #000
+
+.pdf
+  position: relative
+  padding: 10px
+  display: inline-block
+  text-align: center
+  span
+    color: $theme-red
+    font-size: 50px
+    margin-bottom: 10px
+
+
+.panel
+  background-color: #2d353c
+  height: 100%
+  width: 250px
+  padding: 0
+
+  .logout
+    position: absolute
+    bottom: 50px
+    li
+      a:hover
+        background-color: $theme-red
+        color: #fff
+
+
+  .panel-logo
+    // background-color: #1a2229
+    padding: 20px 40px
+    img
+      width: 100%
+      height: auto
+
+  ul
+    width: 100%
+    margin: 0
+    li
+      margin: 0
+      width: 100%
+      a
+        display: block
+        padding: 15px 20px 15px 41px
+        color: #94989e
+        font-size: 15px
+
+      a.active, a:hover
+        background-color: #00acac
+        color: #fff
+
+.bg-pop
+  display: none
+  height: 100%
+  width: 100%
+  background-color: rgba(0, 0, 0, 0.5)
+  z-index: 99
+
+.uploadPop
+  display: none
+  z-index: 100
+
+.closePop
+  right: 0
+  top: 0
+  color: #333
+  background-color: #ccc
+  &:hover
+    background-color: $theme-red
+    color: #fff
+
+.uploadArea
+  margin: 0 auto
+  height: 300px
+  line-height: 300px
+  border: 2px dashed #ccc
+  color: #ccc
+  text-align: center
+  &::before
+    color: rgba(0, 0, 0, 0.05)
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    font: normal normal normal 14px/1 FontAwesome
+    content: "\f0ee"
+    font-size: 250px
+
+.uploadArea.dragover
+  border: 2px dashed #000!important
+  color: #000!important
+
+.background-loader
+  background-color: $theme-red
+
+.spinner
+  border-top-color: $theme-black
+  border-bottom-color: $theme-black
+
+.loader-text
+  color: $theme-black
+
+.featureParent
+  line-height: 40px
+  font-size: 14px
+  display: inline-block
+  .feature
+    display: inline-block
+    background-color: #333
+    padding: 0 20px
+    color: #fff
+
+  [class*="remove"]
+    display: inline-block
+    background-color: #be132c
+    color: #fff
+    padding: 0 15px
+    &:hover
+      background-color: #bf4053
+
+.account
+  border-top: 1px solid #eee
+  margin-left: 10px
+  padding: 10px 0
+  line-height: 27px
+
+
+
+
+// MEDIA STUFF ONLY
+@media screen and (max-width: 900px)
+  .dropdown, .dropdown2
+    width: 100% !important
+
+  a span.fa-caret-right
+    transform-origin: center
+    transform: rotate(90deg)
+  .nav-ul
+    display: none
+
+  .menu-bars
+    display: block
+
+  nav .content
+    padding-left: 0
+
+  nav .nav-black .nav-ul
+    width: 100%
+    margin-left: 0
+    left: 0
+    top: 70px
+    height: 252px
+
+  nav .nav-ul .nav-li
+    z-index: 1000
+    display: block
+    margin-right: 0
+    text-align: center
+    background-color: #fff
+    .dropdown, .dropside, .dropside .dropside2
+      position: relative
+      left: 0
+      width: 100%
+    &:hover
+      .dropdown
+        display: none
+
+      .dropdown
+        &:hover
+          .dropside
+            display: none
+
+        .dropside
+          &:hover
+            .dropside2
+              display: none
+
+
+@media screen and (max-width: 770px)
+  footer
+    padding: 20px
+  nav .nav-address
+    margin-left: 50px
+    right: 0
+  .carousel
+    .background-img
+      height: 300px
+      background-position: center center !important
+      background-attachment: inherit !important
+
+  nav .content .logo
+    top: 30px
+    left: 20px
+
+@media screen and (max-width: 991px) and (min-width: 770px)
+  .weirdo
+    margin-top: -290px
